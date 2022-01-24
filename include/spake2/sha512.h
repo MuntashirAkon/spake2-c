@@ -36,6 +36,9 @@
 #error Couldn't find any appropriate endian.h
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Structure to save state of computation between the single steps.  */
 struct sha512_ctx
@@ -73,5 +76,9 @@ extern void __sha512_process_bytes (const void *buffer, size_t len,
    IMPORTANT: On some systems it is required that RESBUF is correctly
    aligned for a 64 bits value.  */
 extern void *__sha512_finish_ctx (struct sha512_ctx *ctx, void *resbuf);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* sha512.h */

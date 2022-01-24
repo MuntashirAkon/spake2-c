@@ -19,6 +19,10 @@
 
 #include<stdlib.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define SPAKE2_MAX_MSG_SIZE 32
 #define SPAKE2_MAX_KEY_SIZE 64
 
@@ -61,5 +65,9 @@ extern int SPAKE2_process_msg(struct spake2_ctx_st *ctx,
 				    uint8_t *out_key, size_t *out_key_len,
                     size_t max_out_key_len, const uint8_t *their_msg,
                     size_t their_msg_len);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _SPAKE2_H
