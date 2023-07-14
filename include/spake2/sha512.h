@@ -32,6 +32,11 @@
 #include <sys/endian.h>
 #elif defined(__APPLE__) && defined(__MACH__)
 #include <machine/endian.h>
+#elif defined(__WINDOWS__)
+// We can assume Windows x86/x64 is always little endian
+#define LITTLE_ENDIAN 1234
+#define BIG_ENDIAN    4321
+#define BYTE_ORDER LITTLE_ENDIAN
 #else
 #error Couldn't find any appropriate endian.h
 #endif
